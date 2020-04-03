@@ -4,7 +4,7 @@ pipeline {
   stage("build"){
     when{
      expression {
-      BRANCH_NAME == "master"  && CODE_CHANGE == true
+      BRANCH_NAME == "master"  && CODE_CHANGES == true
       }
      }
     steps{

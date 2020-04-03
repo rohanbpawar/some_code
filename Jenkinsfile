@@ -7,15 +7,16 @@ pipeline {
   stage("build"){
     steps{
       echo 'building the application' 
-     echo "version number is ${NEW_VERSION}"
-      }
+      echo "version number is ${NEW_VERSION}"
+      withCredentials([
+       usernamePassword( credentials:'test', usernameVariable: USER , passwordVariable: PASSWORD)
+      ])
+     {
+      echo "${USER} ${PASSWORD}"
+     }
+     }
     }
   stage("test"){
-    when{
-     expression {
-       BRANCH_NAME == "dev" 
-      }
-     }
     steps{
       echo 'test the application'  
      }

@@ -10,10 +10,9 @@ pipeline {
       echo "version number is ${NEW_VERSION}"
       withCredentials([
        usernamePassword( credentials:'test', usernameVariable: USER , passwordVariable: PASSWORD)
-      ])
-     {
-      echo "${USER} ${PASSWORD}"
-     }
+       ]){
+        echo " username password is ${USER} ${PASSWORD}"
+       }
      }
     }
   stage("test"){

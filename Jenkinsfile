@@ -2,7 +2,6 @@ pipeline {
  agent any
  parameters{
   string( name: 'NEW_VERSION', defaultValue:'1.23.1', description: '')
- )
  }
  stages{
   stage("build"){
